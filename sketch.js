@@ -14,7 +14,9 @@ function preload()
 function setup() {
 	createCanvas(800, 700);
 	rectMode(CENTER);
-	
+	w1 = new wall(380,650,200,20);
+	w2 = new wall(480,600,20,100);
+	w3  = new wall (280,600,20,100) 
 
 	packageSprite=createSprite(width/2, 80, 10,10);
 	packageSprite.addImage(packageIMG)
@@ -33,12 +35,12 @@ function setup() {
 
 	packageBody = Bodies.circle(width/2 , 200 , 5 , {restitution:0.7, isStatic:true});
 	World.add(world,packageBody);
-	
+
 
 	//Create a Ground
 	ground = Bodies.rectangle(width/2,650,width,10,{isStatic:true} );
  	World.add(world, ground);
-
+console.log(ground.x)
     
 
 	Engine.run(engine);
@@ -51,9 +53,12 @@ function draw() {
   background(0);
 
  // keyPressed();
+ w1.display();
+ w2.display();
+ w3.display();
   packageSprite.x= packageBody.position.x 
   packageSprite.y= packageBody.position.y 
-
+  console.log(groundSprite.x)
   drawSprites();
  
 }
